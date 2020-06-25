@@ -1,5 +1,7 @@
 samobot = {
-  
+  lat:0,
+  lon:0,
+
   lifeClock: function(){
     if(localStorage.getItem('lifeClock') < 1) {
       date = new Date(0);
@@ -29,11 +31,14 @@ samobot = {
   },
 
   geolocation: function(position) {
-    document.getElementById("gpsLat").innerHTML = position.coords.latitude;
-    document.getElementById("gpsLon").innerHTML = position.coords.longitude;
+    this.lat = document.getElementById("gpsLat").innerHTML = position.coords.latitude;
+    this.lon = document.getElementById("gpsLon").innerHTML = position.coords.longitude;
   }
 }
 
+samobot.lifeClock(); 
+navigator.geolocation.watchPosition(samobot.geolocation);
+ 
 samobot.lifeClock(); 
 
 navigator.geolocation.watchPosition(samobot.geolocation)
