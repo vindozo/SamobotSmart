@@ -25,3 +25,21 @@ footer {
 footer .data{
   color:#ff0;
 }
+
+#emotion {
+  background:#000;
+  width: 300px;
+  height: 200px;
+}
+.eye-black .eye-left, .eye-black .eye-right{
+  fill: #333;
+}
+.eye-blue .eye-left, .eye-blue .eye-right{
+  fill: #0feaed;
+}
+.eye-green .eye-left, .eye-green .eye-right{
+  fill: #00f196;
+}
+.eye-red .eye-left, .eye-red .eye-right{
+  fill: #ee296f;
+}
