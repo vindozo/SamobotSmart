@@ -8,13 +8,31 @@
 </head>
 <body>
     <div id=screen>
-      
+      <div>
+          <svg id="emotion" class="eye-black" >
+            <rect class="eye-left" x="55" y="50" width="90" height="90" rx="20" ry="20"/> 
+            <rect class="eye-right" x="155" y="50" width="90" height="90" rx="20" ry="20"/>
+          </svg>
+      </div>
+      <div>
+        <button onclick="emotion.color('red')">Красный</button>
+        <button onclick="emotion.color('green')">Зеленый</button>
+        <button onclick="emotion.color('blue')">Синий</button>
+        <br><br>
+        <button onclick="emotion.off()">Выключить</button>
+        <button onclick="emotion.neutral()">Нейтральный</button>
+        <button onclick="emotion.surprise()">Сюрприз</button>
+        <button onclick="emotion.attack()">Злой</button>
+        <button onclick="emotion.sad()">Грустный</button>
+        <button onclick="emotion.like()">Счастье</button>
+      </div>      
       <footer>
+        <div class="info">
         <div>
-          //.RU/<span class='data'>SAMOBOT</span> 
+          //DIGITALMOTOR.RU/<span class='data'>SAMOBOT</span> 
         </div>
         <div>
-          TEXПОДДЕРЖКА <span class='data'>+7</span> 
+          TEXПОДДЕРЖКА <span class='data'>+79655237040 </span>
         </div>
         <div>
           ИМЯ <span class='data' id="name">ШАРМАНЩИК №1 <b style="color:red">OFFLINE</b></span>
@@ -32,11 +50,13 @@
           &nbsp;&nbsp;&nbsp;&nbsp;LON <span class='data' id="gpsLon"></span>
         </div>        
         <div>
-          БАТАРЕЯ ОСН <span class='data' id="bat">100%</span>
+          БАТАРЕЯ ОСН <span class='data' id="bat">---</span>
           ДОП <span class='data' id="bat">100%</span>
         </div>   
+        <div>
       </footer>
     </div>
+    <script type="text/javascript" src="emotion.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
 <html>
