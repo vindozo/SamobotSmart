@@ -1,6 +1,7 @@
 samobot = {
   lat:0,
   lon:0,
+  battery:0,
 
   lifeClock: function(){
     if(localStorage.getItem('lifeClock') < 1) {
@@ -37,20 +38,18 @@ samobot = {
   
   geolocationError: function(error) {
     alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+  },
+  
+  batteryStatus: function(info) { 
+    this.battery = document.getElementById("bat").innerHTML = info.level; 
   }
-}
-
-function onSuccess(position) {
-    var element = document.getElementById('geolocation');
-    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                        'Longitude: ' + position.coords.longitude     + '<br />' +
-                        '<hr />'      + element.innerHTML;
 }
 
 function onDeviceReady() { 
   window.plugins.insomnia.keepAwake(); 
   navigator.geolocation.watchPosition(samobot.geolocation, samobot.geolocationError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
-  samobot.lifeClock(); 
+  window.addEventListener("batterystatus", samobot.batteryStatus, false);
+  samobot.lifeClock();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
