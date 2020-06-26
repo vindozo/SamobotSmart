@@ -45,11 +45,12 @@ samobot = {
   },
   
   cameraPreview: function() {
+    var preview = document.getElementById('previewPicture').getBoundingClientRect();
     CameraPreview.startCamera({
-      x: 0,
-      y: 100,
-      width: window.screen.width,
-      height: 200,
+      x: preview.left,
+      y: preview.top,
+      width: preview.width,
+      height: preview.hight,
       camera: CameraPreview.CAMERA_DIRECTION.FRONT, //BACK
       toBack: false,
       tapPhoto: true,
