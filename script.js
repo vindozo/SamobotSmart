@@ -40,6 +40,6 @@ samobot.lifeClock();
 navigator.geolocation.watchPosition(samobot.geolocation);
  
 samobot.lifeClock(); 
-window.plugins.insomnia.keepAwake()
+window.plugins.insomnia.keepAwake();
 navigator.geolocation.watchPosition(samobot.geolocation)
  
