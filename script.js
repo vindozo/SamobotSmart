@@ -33,6 +33,10 @@ samobot = {
   geolocation: function(position) {
     this.lat = document.getElementById("gpsLat").innerHTML = position.coords.latitude;
     this.lon = document.getElementById("gpsLon").innerHTML = position.coords.longitude;
+  },
+  
+  geolocationError: function(error) {
+    alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
   }
 }
 
@@ -43,18 +47,9 @@ function onSuccess(position) {
                         '<hr />'      + element.innerHTML;
 }
 
-// onError Callback receives a PositionError object
-//
-function onError(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
-}
-
-
 function onDeviceReady() { 
   window.plugins.insomnia.keepAwake(); 
-  // navigator.geolocation.watchPosition(samobot.geolocation)
-  var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
+  navigator.geolocation.watchPosition(samobot.geolocation, samobot.geolocationError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
   samobot.lifeClock(); 
 }
 
