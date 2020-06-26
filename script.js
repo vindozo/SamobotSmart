@@ -36,10 +36,12 @@ samobot = {
   }
 }
 
-samobot.lifeClock(); 
-navigator.geolocation.watchPosition(samobot.geolocation);
- 
-samobot.lifeClock(); 
-window.plugins.insomnia.keepAwake();
-navigator.geolocation.watchPosition(samobot.geolocation)
- 
+function onLoad() { 
+  document.addEventListener("deviceready", onDeviceReady, false);
+} 
+
+function onDeviceReady() { 
+  window.plugins.insomnia.keepAwake(); 
+  navigator.geolocation.watchPosition(samobot.geolocation)
+  samobot.lifeClock(); 
+}
