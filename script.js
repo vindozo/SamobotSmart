@@ -76,7 +76,7 @@ function onDeviceReady() {
   navigator.geolocation.watchPosition(samobot.geolocation, samobot.geolocationError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
   window.addEventListener("batterystatus", samobot.batteryStatus, false);
   samobot.lifeClock();
-  samobot.cameraPreview();
+ // samobot.cameraPreview();
   samobot.lifeCamera();
 }
 
