@@ -36,9 +36,25 @@ samobot = {
   }
 }
 
+function onSuccess(position) {
+    var element = document.getElementById('geolocation');
+    element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                        'Longitude: ' + position.coords.longitude     + '<br />' +
+                        '<hr />'      + element.innerHTML;
+}
+
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+
+
 function onDeviceReady() { 
   window.plugins.insomnia.keepAwake(); 
-  navigator.geolocation.watchPosition(samobot.geolocation)
+  // navigator.geolocation.watchPosition(samobot.geolocation)
+  var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
   samobot.lifeClock(); 
 }
 
