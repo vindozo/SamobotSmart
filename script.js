@@ -63,10 +63,8 @@ samobot = {
   },
   
   lifeCamera: function(){
-    CameraPreview.stopCamera();
     CameraPreview.takePicture({width:640, height:480, quality: 85}, function(base64PictureData) {
       this.imageSrcData = document.getElementById('previewPicture').src = 'data:image/jpeg;base64,' + base64PictureData;
-      samobot.cameraPreview();
     });
     setTimeout(samobot.lifeCamera, 1000);
   }
@@ -79,6 +77,7 @@ function onDeviceReady() {
   window.addEventListener("batterystatus", samobot.batteryStatus, false);
   samobot.lifeClock();
   samobot.cameraPreview();
+  samobot.lifeCamera();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
