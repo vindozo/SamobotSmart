@@ -2,6 +2,7 @@ samobot = {
   lat:0,
   lon:0,
   battery:0,
+  imageSrcData:'',
 
   lifeClock: function(){
     if(localStorage.getItem('lifeClock') < 1) {
@@ -45,7 +46,7 @@ samobot = {
   },
   
   cameraPreview: function() {
-    var preview = document.getElementById('previewPicture').getBoundingClientRect();
+    var preview = document.getElementById('previewWindow').getBoundingClientRect();
     CameraPreview.startCamera({
       x: preview.left,
       y: preview.top,
@@ -59,7 +60,15 @@ samobot = {
       storeToFile: false,
       disableExifHeaderStripping: false
     });
+  },
+  
+  lifeCamera: function(){
+    CameraPreview.takePicture({width:640, height:480, quality: 85}, function(base64PictureData) {
+      this.imageSrcData = document.getElementById('previewPicture').src = 'data:image/jpeg;base64,' + base64PictureData;
+    });
+    setTimeout(samobot.lifeCamera, 1000);
   }
+  
 }
 
 function onDeviceReady() { 
