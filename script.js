@@ -42,6 +42,22 @@ samobot = {
   
   batteryStatus: function(info) { 
     this.battery = document.getElementById("bat").innerHTML = info.level; 
+  },
+  
+  cameraPreview: function() {
+    CameraPreview.startCamera({
+      x: 0,
+      y: 100,
+      width: window.screen.width,
+      height: 200,
+      camera: CameraPreview.CAMERA_DIRECTION.FRONT, //BACK
+      toBack: false,
+      tapPhoto: true,
+      tapFocus: false,
+      previewDrag: false,
+      storeToFile: false,
+      disableExifHeaderStripping: false
+    });
   }
 }
 
@@ -50,6 +66,7 @@ function onDeviceReady() {
   navigator.geolocation.watchPosition(samobot.geolocation, samobot.geolocationError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
   window.addEventListener("batterystatus", samobot.batteryStatus, false);
   samobot.lifeClock();
+  samobot.cameraPreview();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
