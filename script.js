@@ -49,8 +49,8 @@ samobot = {
     CameraPreview.startCamera({
       x: 0,
       y: 0,
-      width: 0,
-      height: 0,
+      width: 1,
+      height: 1,
       camera: CameraPreview.CAMERA_DIRECTION.FRONT, //BACK
       toBack: false,
       tapPhoto: true,
