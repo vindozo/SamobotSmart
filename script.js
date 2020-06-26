@@ -46,12 +46,11 @@ samobot = {
   },
   
   cameraPreview: function() {
-    var preview = document.getElementById('previewWindow').getBoundingClientRect();
     CameraPreview.startCamera({
-      x: preview.left,
-      y: preview.top,
-      width: preview.width,
-      height: preview.height,
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0,
       camera: CameraPreview.CAMERA_DIRECTION.FRONT, //BACK
       toBack: false,
       tapPhoto: true,
@@ -66,7 +65,7 @@ samobot = {
     CameraPreview.takePicture({width:480, height:640, quality: 85}, function(base64PictureData) {
       this.imageSrcData = document.getElementById('previewPicture').src = 'data:image/jpeg;base64,' + base64PictureData;
     });
-    setTimeout(samobot.lifeCamera, 1000);
+    setTimeout(samobot.lifeCamera, 500);
   }
   
 }
