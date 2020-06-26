@@ -29,6 +29,7 @@
     <icon src="icon.png" />
 
     <plugin name="cordova-plugin-whitelist" source="npm" />
+    <plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
     
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
