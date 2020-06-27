@@ -71,10 +71,6 @@ samobot = {
   
   lifeSignal:function(){
 
-    window.SignalStrength.dbm(function(measuredDbm){
-     this.imageSrcData = document.getElementById('dbm').innerHTML = measuredDbm
-    });
-
     /*
     signalStrength.getdBm(function(result) {
       alert(result);
@@ -82,8 +78,8 @@ samobot = {
       alert(JSON.stringify(err));
     });
     */
-  
-    setTimeout(samobot.lifeSignal, 500);
+  alert(SignalStrengthDualSim.sim1());
+   // setTimeout(samobot.lifeSignal, 500);
   }
   
 }
