@@ -71,6 +71,13 @@ samobot = {
   
   lifeSignal:function(){
 
+    androidconnectivity.getJsonResult(
+    function(resp){
+        alert(resp);
+    },
+    function(err){
+        alert("Error: "+(err));
+    });
     /*
     signalStrength.getdBm(function(result) {
       alert(result);
