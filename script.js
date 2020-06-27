@@ -70,10 +70,18 @@ samobot = {
   },
   
   lifeSignal:function(){
+    /*
     window.SignalStrength.dbm(function(measuredDbm){
      this.imageSrcData = document.getElementById('dbm').innerHTML = measuredDbm
     });
-    setTimeout(samobot.lifeSignal, 500);
+    */
+    signalStrength.getdBm().then((result) => {
+      alert(result);
+    }, (err) => {
+      alert(JSON.stringify(err));
+    });
+  }
+    //setTimeout(samobot.lifeSignal, 500);
   }
   
 }
