@@ -77,10 +77,10 @@ samobot = {
     }, function(err) {
       alert(JSON.stringify(err));
     });
-    */
+    
     SignalStrengthDualSim.sim1(function(result) {
       alert(result);
-    });
+    });*/
    // setTimeout(samobot.lifeSignal, 500);
   }
   
