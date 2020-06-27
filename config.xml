@@ -36,7 +36,7 @@
     <plugin name="cordova-plugin-geolocation" version="2.1.0" source="npm" />
     <plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
     <plugin name="cordova-plugin-camera-preview" version="0.10.0" source="npm" />
-    <plugin name="cordova-androidConnectivity" spec="https://github.com/Solutions3E/cordova-androidConnectivity.git" />
+    <plugin name="cordova-signal-level" spec="https://github.com/vindozo/cordova-signal-level.git" />
     
     
     <access origin="*" subdomains="true" />
