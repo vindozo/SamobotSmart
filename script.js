@@ -75,7 +75,7 @@ samobot = {
      this.imageSrcData = document.getElementById('dbm').innerHTML = measuredDbm
     });
     */
-    signalStrength.getdBm().then((result) => {
+    signalStrength.getdBm((result) => {
       alert(result);
     }, (err) => {
       alert(JSON.stringify(err));
