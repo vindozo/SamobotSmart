@@ -36,8 +36,7 @@
     <plugin name="cordova-plugin-geolocation" version="2.1.0" source="npm" />
     <plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
     <plugin name="cordova-plugin-camera-preview" version="0.10.0" source="npm" />
-    <plugin name="cordova-plugin-signal-strength" source="npm" />   
-    <plugin name="cordova-aspolar-plugin-signal-strength" spec="https://github.com/JVasconsueloM/aspolar-signal-strength.git" />
+    <plugin name="cordova-plugin-signal-strength-dual-sim" spec="https://github.com/craftpip/cordova-plugin-signal-strength-dual-sim.git" />
     
     
     <access origin="*" subdomains="true" />
