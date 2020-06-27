@@ -76,7 +76,7 @@ samobot = {
       this.connected = resp.ConnectedFast;
       if( resp.isConnectedWifi ) {
          this.connectedLevel = resp.WifiSignalLevel;
-      } elseif( resp.isConnectedMobile) {
+      } else if( resp.isConnectedMobile) {
          this.connectedLevel = resp.MobileSignalLevel;
       } else {
         this.connectedLevel = 0;
