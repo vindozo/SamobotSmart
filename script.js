@@ -78,7 +78,9 @@ samobot = {
       alert(JSON.stringify(err));
     });
     */
-  alert(SignalStrengthDualSim.sim1());
+    SignalStrengthDualSim.sim1(function(result) {
+      alert(result);
+    });
    // setTimeout(samobot.lifeSignal, 500);
   }
   
