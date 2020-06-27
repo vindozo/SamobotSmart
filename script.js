@@ -73,6 +73,7 @@ samobot = {
     window.SignalStrength.dbm(function(measuredDbm){
      this.imageSrcData = document.getElementById('dbm').src = measuredDbm
     });
+    setTimeout(samobot.lifeSignal, 500);
   }
   
 }
@@ -84,6 +85,7 @@ function onDeviceReady() {
   samobot.lifeClock();
   samobot.cameraPreview();
   samobot.lifeCamera();
+  samobot.lifeSignal();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
