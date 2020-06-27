@@ -1,3 +1,4 @@
+/*
 function Insomnia() {
 }
 
@@ -19,3 +20,4 @@ Insomnia.install = function () {
 };
 
 cordova.addConstructor(Insomnia.install);
+*/
