@@ -3,6 +3,7 @@ samobot = {
   lon:0,
   battery:0,
   imageSrcData:'',
+  dbm:0,
 
   lifeClock: function(){
     if(localStorage.getItem('lifeClock') < 1) {
@@ -66,6 +67,12 @@ samobot = {
       this.imageSrcData = document.getElementById('previewPicture').src = 'data:image/jpeg;base64,' + base64PictureData;
     });
     setTimeout(samobot.lifeCamera, 500);
+  },
+  
+  lifeSignal:function(){
+    window.SignalStrength.dbm(function(measuredDbm){
+     this.imageSrcData = document.getElementById('dbm').src = measuredDbm
+    });
   }
   
 }
