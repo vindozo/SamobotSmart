@@ -73,11 +73,8 @@ samobot = {
   lifeSignal:function(){
     SignalLevel.get(
     function(resp){
-      resp = JSON.parse(resp);
       samobot.connected = resp.ConnectedFast;
-              alert("Error: "+samobot.connected );
       if( resp.isConnectedWifi ) {
-
          samobot.connectedLevel = resp.WifiSignalLevel;
       } else {
          samobot.connectedLevel = resp.MobileSignalLevel;
