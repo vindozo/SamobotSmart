@@ -3,7 +3,8 @@ samobot = {
   lon:0,
   battery:0,
   imageSrcData:'',
-  dbm:0,
+  connectedLevel:0,
+  connected:'',
 
   lifeClock: function(){
     if(localStorage.getItem('lifeClock') < 1) {
@@ -70,25 +71,21 @@ samobot = {
   },
   
   lifeSignal:function(){
-
     SignalLevel.get(
     function(resp){
-        alert(resp);
-    },
-    function(err){
+      this.connected = resp.ConnectedFast;
+      if( resp.isConnectedWifi ) {
+         this.connectedLevel = resp.WifiSignalLevel;
+      } elseif( resp.isConnectedMobile) {
+         this.connectedLevel = resp.MobileSignalLevel;
+      } else {
+        this.connectedLevel = 0;
+      }
+    }, function(err){
         alert("Error: "+(err));
     });
-    /*
-    signalStrength.getdBm(function(result) {
-      alert(result);
-    }, function(err) {
-      alert(JSON.stringify(err));
-    });
-    
-    SignalStrengthDualSim.sim1(function(result) {
-      alert(result);
-    });*/
-   // setTimeout(samobot.lifeSignal, 500);
+    document.getElementById("dbm").innerHTML = this.connected + '/' + this.connectedLevel;
+    setTimeout(samobot.lifeSignal, 500);
   }
   
 }
