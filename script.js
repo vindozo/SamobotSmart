@@ -88,7 +88,7 @@ samobot = {
   },
   
   lifeMagneticHeading:function(heading) {
-    samobot.magneticHeading = document.getElementById('compas') = heading.magneticHeading;
+    samobot.magneticHeading = document.getElementById('compas').innerHTML = heading.magneticHeading;
   },
 
   magneticHeadingError:function(compassError) {
