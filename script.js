@@ -73,13 +73,13 @@ samobot = {
   lifeSignal:function(){
     SignalLevel.get(
     function(resp){
-      this.connected = resp.ConnectedFast;
+      samobot.connected = resp.ConnectedFast;
       if( resp.isConnectedWifi ) {
-         this.connectedLevel = resp.WifiSignalLevel;
+         samobot.connectedLevel = resp.WifiSignalLevel;
       } else {
-         this.connectedLevel = resp.MobileSignalLevel;
+         samobot.connectedLevel = resp.MobileSignalLevel;
       }
-      document.getElementById("dbm").innerHTML = this.connected + '/' + this.connectedLevel;
+      document.getElementById("dbm").innerHTML = samobot.connected + '/' + samobot.connectedLevel;
       setTimeout(samobot.lifeSignal, 500);
     }, function(err){
       alert("Error: "+(err));
