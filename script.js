@@ -76,18 +76,15 @@ samobot = {
       this.connected = resp.ConnectedFast;
       if( resp.isConnectedWifi ) {
          this.connectedLevel = resp.WifiSignalLevel;
-      } else if( resp.isConnectedMobile) {
-         this.connectedLevel = resp.MobileSignalLevel;
       } else {
-        this.connectedLevel = 0;
+         this.connectedLevel = resp.MobileSignalLevel;
       }
+      document.getElementById("dbm").innerHTML = this.connected + '/' + this.connectedLevel;
+      setTimeout(samobot.lifeSignal, 500);
     }, function(err){
-        alert("Error: "+(err));
+      alert("Error: "+(err));
     });
-    document.getElementById("dbm").innerHTML = this.connected + '/' + this.connectedLevel;
-    setTimeout(samobot.lifeSignal, 500);
-  }
-  
+  }  
 }
 
 function onDeviceReady() { 
