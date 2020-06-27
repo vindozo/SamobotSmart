@@ -100,12 +100,12 @@ samobot = {
 function onDeviceReady() { 
   window.plugins.insomnia.keepAwake(); 
   navigator.geolocation.watchPosition(samobot.geolocation, samobot.geolocationError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
-  navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
   window.addEventListener("batterystatus", samobot.batteryStatus, false);
   samobot.lifeClock();
-  setTimeout(samobot.cameraPreview, 5000);
-  setTimeout(samobot.lifeCamera, 6000);
+  samobot.cameraPreview();
+  samobot.lifeCamera();
   samobot.lifeSignal();
+  navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
