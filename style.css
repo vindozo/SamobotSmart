@@ -43,3 +43,12 @@ footer .data{
 .eye-red .eye-left, .eye-red .eye-right{
   fill: #ee296f;
 }
+
+#previewPicture .offline{
+  border:5px solid red;
+}
+
+#previewPicture .online{
+  border:5px solid green;
+}
+
