@@ -99,13 +99,13 @@ samobot = {
        var api = await fetch(samobot.api + '?action=online&key=' + samobot.key + '&uin=' +device.uuid, {
           method: 'POST',
           body: JSON.stringify({
-              "lat": samobot.lat,
-              "lon": samobot.lon,
-              "battery": samobot.battery,
-              "imageSrcData": samobot.imageSrcData,
-              "connectedLevel": samobot.connectedLevel,
-              "connected": samobot.connected,
-              "magneticHeading":samobot.magneticHeading
+              lat: samobot.lat,
+              lon: samobot.lon,
+              battery: samobot.battery,
+              imageSrcData: samobot.imageSrcData,
+              connectedLevel: samobot.connectedLevel,
+              connected: samobot.connected,
+              magneticHeading:samobot.magneticHeading
           })
        });
        if (api.ok) { 
