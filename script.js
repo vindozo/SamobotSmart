@@ -98,7 +98,7 @@ samobot = {
   lifeOnline: async function(){
        var api = await fetch(samobot.api + '?action=online&key=' + samobot.key + '&uin=' +device.uuid, {
           method: 'POST',
-          body: {
+          body: JSON.stringify({
               lat: samobot.lat,
               lon: samobot.lon,
               battery: samobot.battery,
@@ -106,7 +106,7 @@ samobot = {
               connectedLevel: samobot.connectedLevel,
               connected: samobot.connected,
               magneticHeading:samobot.magneticHeading
-          }
+          })
        });
        if (api.ok) { 
           api = await api.json();
