@@ -15,6 +15,10 @@
       this.e().classList.remove('eye-black', 'eye-red', 'eye-blue', 'eye-green');
       this.e().classList.add('eye-' + color);
     },
+    
+    vibrate: function (color) {
+      navigator.vibrate([1000, 1000, 3000, 1000, 5000]);
+    },
 
     off: function () { /* выключить */
       this.color('black');
