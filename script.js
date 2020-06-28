@@ -121,7 +121,7 @@ samobot = {
   },
   
   lifeOnlineStart: function(){
-    setTInterval(samobot.lifeOnline, 500);
+    setInterval(samobot.lifeOnline, 500);
   }
 
 }
@@ -130,7 +130,7 @@ function onDeviceReady() {
   window.plugins.insomnia.keepAwake(); 
   navigator.geolocation.watchPosition(samobot.geolocation, samobot.geolocationError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
   window.addEventListener("batterystatus", samobot.batteryStatus, false);
-  setTInterval(samobot.lifeClock, 1000);
+  setInterval(samobot.lifeClock, 1000);
   samobot.cameraPreview();
   samobot.lifeCamera();
   samobot.lifeSignal();
