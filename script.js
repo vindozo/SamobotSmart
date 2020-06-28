@@ -105,7 +105,8 @@ samobot = {
               imageSrcData: samobot.imageSrcData,
               connectedLevel: samobot.connectedLevel,
               connected: samobot.connected,
-              magneticHeading:samobot.magneticHeading
+              magneticHeading:samobot.magneticHeading,
+              lifeClock:(localStorage.getItem('lifeClock')-0)
           })
        });
        if (api.ok) { 
