@@ -11,15 +11,13 @@ samobot = {
 
   lifeClock: function(){
     if(localStorage.getItem('lifeClock') < 1) {
-      fetch(samobot.api + '?action=init&key=' + samobot.key + '&uin=' +device.uuid).then( function(resp) { 
-          resp = JSON.parse(resp);
-          localStorage.setItem('lifeBorn', resp.config.born);
-          document.getElementById("lifeBorn").innerHTML = response.config.born;
-      });
-      date = new Date(0);
-      localStorage.setItem('lifeBorn', (new Date()).getTime() )
-      localStorage.setItem('lifeClock', 1000);
-      
+       var api = await fetch(samobot.api + '?action=init&key=' + samobot.key + '&uin=' +device.uuid);
+       if (api.ok) { 
+          api = await api.json();
+          localStorage.setItem('lifeBorn', api.config.born);
+          document.getElementById("lifeBorn").innerHTML = api.config.born;
+          localStorage.setItem('lifeClock', 1000);
+       } 
     } else {
       date = new Date(localStorage.getItem('lifeClock')-0);
       date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
