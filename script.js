@@ -36,8 +36,8 @@ samobot = {
   },
 
   geolocation: function(position) {
-    this.lat = document.getElementById("gpsLat").innerHTML = position.coords.latitude;
-    this.lon = document.getElementById("gpsLon").innerHTML = position.coords.longitude;
+    samobot.lat = document.getElementById("gpsLat").innerHTML = position.coords.latitude;
+    samobot.lon = document.getElementById("gpsLon").innerHTML = position.coords.longitude;
   },
   
   geolocationError: function(error) {
@@ -45,7 +45,7 @@ samobot = {
   },
   
   batteryStatus: function(info) { 
-    this.battery = document.getElementById("bat").innerHTML = info.level; 
+    samobot.battery = document.getElementById("bat").innerHTML = info.level; 
   },
   
   cameraPreview: function() {
@@ -66,7 +66,7 @@ samobot = {
   
   lifeCamera: function(){
     CameraPreview.takePicture({width:640, height:640, quality: 85}, function(base64PictureData) {
-      this.imageSrcData = document.getElementById('previewPicture').src = 'data:image/jpeg;base64,' + base64PictureData;
+      samobot.imageSrcData = document.getElementById('previewPicture').src = 'data:image/jpeg;base64,' + base64PictureData;
     });
     setTimeout(samobot.lifeCamera, 500);
   },
