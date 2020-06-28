@@ -106,7 +106,7 @@ function onDeviceReady() {
   samobot.lifeCamera();
   samobot.lifeSignal();
   navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
-  document.getElementById('UIN').innerHTML = device.serial;
+  document.getElementById('UIN').innerHTML = device.uuid ;
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
