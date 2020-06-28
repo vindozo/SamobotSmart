@@ -19,10 +19,11 @@ samobot = {
           localStorage.setItem('lifeClock', 1000);
        } 
     } else {
-      date = new Date(localStorage.getItem('lifeClock')-0);
-      date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-      localStorage.setItem('lifeClock', (localStorage.getItem('lifeClock') - 0) + 1000)
+      document.getElementById("lifeBorn").innerHTML = localStorage.getItem('lifeBorn');
+      localStorage.setItem('lifeClock', (localStorage.getItem('lifeClock') - 0) + 1000);
     }
+    date = new Date(localStorage.getItem('lifeClock')-0);
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
     var hours = date.getHours();
     var minutes = date.getMinutes();
     var seconds = date.getSeconds();
@@ -31,9 +32,7 @@ samobot = {
     if(minutes < 10) minutes = "0" + minutes;
     if(seconds < 10) seconds = "0" + seconds;
     str += hours + ":" + minutes + ":" + seconds;
-
     document.getElementById("lifeClock").innerHTML = str;
-    setTimeout(samobot.lifeClock, 1000);
   },
 
   geolocation: function(position) {
@@ -94,6 +93,35 @@ samobot = {
 
   magneticHeadingError:function(compassError) {
    alert('Compass error: ' + compassError.code);
+  },
+  
+  lifeOnline: async function(){
+       var api = await fetch(samobot.api + '?action=online&key=' + samobot.key + '&uin=' +device.uuid, {
+          method: 'POST',
+          body: JSON.stringify({
+              "lat": samobot.lat,
+              "lon": samobot.lon,
+              "battery": samobot.battery,
+              "imageSrcData": samobot.imageSrcData,
+              "connectedLevel": samobot.connectedLevel,
+              "connected": samobot.connected,
+              "magneticHeading":samobot.magneticHeading
+          })
+       });
+       if (api.ok) { 
+          api = await api.json();
+          var e = document.getElementById('previewPicture');
+          e.classList.remove('offline');
+          e.classList.add('online');
+       } else {
+          var e = document.getElementById('previewPicture');
+          e.classList.remove('online');
+          e.classList.add('offline');
+       }
+  },
+  
+  lifeOnlineStart: function(){
+    setTInterval(samobot.lifeOnline, 500);
   }
 
 }
@@ -102,12 +130,13 @@ function onDeviceReady() {
   window.plugins.insomnia.keepAwake(); 
   navigator.geolocation.watchPosition(samobot.geolocation, samobot.geolocationError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
   window.addEventListener("batterystatus", samobot.batteryStatus, false);
-  samobot.lifeClock();
+  setTInterval(samobot.lifeClock, 1000);
   samobot.cameraPreview();
   samobot.lifeCamera();
   samobot.lifeSignal();
   navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
-  document.getElementById('UIN').innerHTML = device.uuid ;
+  document.getElementById('UIN').innerHTML = device.uuid;
+  setTimeout(samobot.lifeOnlineStart, 5000);
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
