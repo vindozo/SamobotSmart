@@ -6,12 +6,20 @@ samobot = {
   connectedLevel:0,
   connected:'',
   magneticHeading:0,
+  key:'d728a1e066c15b0f983e8c48f928d86f',
+  api:'http://digitalmotor.ru/samobot/api/',
 
   lifeClock: function(){
     if(localStorage.getItem('lifeClock') < 1) {
+      fetch(samobot.api + '?action=init&key=' + samobot.key + '&uin=' +device.uuid).then( function(response) { 
+          response = response.json();
+          localStorage.setItem('lifeBorn', response.config.born);
+          document.getElementById("lifeBorn").innerHTML = response.config.born;
+      });
       date = new Date(0);
       localStorage.setItem('lifeBorn', (new Date()).getTime() )
       localStorage.setItem('lifeClock', 1000);
+      
     } else {
       date = new Date(localStorage.getItem('lifeClock')-0);
       date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
@@ -27,11 +35,6 @@ samobot = {
     str += hours + ":" + minutes + ":" + seconds;
 
     document.getElementById("lifeClock").innerHTML = str;
-    document.getElementById("lifeBorn").innerHTML = new Date(localStorage.getItem('lifeBorn')-0).toLocaleString('ru', {
-    day:   '2-digit',
-    month: '2-digit',
-    year:  'numeric'
-  });
     setTimeout(samobot.lifeClock, 1000);
   },
 
