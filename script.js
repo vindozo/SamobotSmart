@@ -9,7 +9,7 @@ samobot = {
   key:'d728a1e066c15b0f983e8c48f928d86f',
   api:'http://digitalmotor.ru/samobot/api/',
 
-  lifeClock: function(){
+  lifeClock: async function(){
     if(localStorage.getItem('lifeClock') < 1) {
        var api = await fetch(samobot.api + '?action=init&key=' + samobot.key + '&uin=' +device.uuid);
        if (api.ok) { 
