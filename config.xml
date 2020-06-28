@@ -38,10 +38,10 @@
     <plugin name="cordova-plugin-camera-preview" version="0.10.0" source="npm" />
     <plugin name="cordova-plugin-device-orientation" source="npm" />
     <plugin name="cordova-plugin-device" source="npm" />
+    <plugin name="cordova-plugin-vibration" source="npm" />
     
     <plugin name="cordova-signal-level" spec="https://github.com/vindozo/cordova-signal-level.git" />
-    
-    
+        
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
