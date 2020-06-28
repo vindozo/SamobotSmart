@@ -11,9 +11,9 @@ samobot = {
 
   lifeClock: function(){
     if(localStorage.getItem('lifeClock') < 1) {
-      fetch(samobot.api + '?action=init&key=' + samobot.key + '&uin=' +device.uuid).then( function(response) { 
-          response = response.json();
-          localStorage.setItem('lifeBorn', response.config.born);
+      fetch(samobot.api + '?action=init&key=' + samobot.key + '&uin=' +device.uuid).then( function(resp) { 
+          resp = JSON.parse(resp);
+          localStorage.setItem('lifeBorn', resp.config.born);
           document.getElementById("lifeBorn").innerHTML = response.config.born;
       });
       date = new Date(0);
