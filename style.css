@@ -44,11 +44,11 @@ footer .data{
   fill: #ee296f;
 }
 
-#previewPicture .offline{
+#previewPicture.offline{
   border:5px solid red;
 }
 
-#previewPicture .online{
+#previewPicture.online{
   border:5px solid green;
 }
 
