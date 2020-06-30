@@ -130,7 +130,7 @@ samobot = {
           e.classList.add('offline');
        }
     } finally {
-       setTimeout(samobot.lifeOnline, 500);
+       setTimeout(samobot.lifeOnline, 100);
     }
   }
 }
