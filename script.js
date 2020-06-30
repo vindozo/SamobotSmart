@@ -75,12 +75,12 @@ samobot = {
         }
         if(samobot.cameraStopCounter > 10 ) {
           samobot.cameraStopCounter = 0;
-          samobot.cameraPreview();
+         // samobot.cameraPreview();
         }
         samobot.imageSrcData = document.getElementById('previewPicture').src = base64PictureData;
       });
     } catch(err) {
-      samobot.cameraPreview();
+      //samobot.cameraPreview();
     } finally {
        setTimeout(samobot.lifeCamera, 500);
     }    
