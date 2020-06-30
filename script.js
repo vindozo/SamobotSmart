@@ -65,7 +65,7 @@ samobot = {
   },
   
   lifeCamera: function(){
-    CameraPreview.takePicture({width:240, height:240, quality: 85}, function(base64PictureData) {
+    CameraPreview.takePicture({width:240, height:240, quality: 80}, function(base64PictureData) {
       samobot.imageSrcData = document.getElementById('previewPicture').src = 'data:image/jpeg;base64,' + base64PictureData;
     });
     setTimeout(samobot.lifeCamera, 500);
