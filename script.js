@@ -3,6 +3,7 @@ samobot = {
   lon:0,
   battery:0,
   imageSrcData:'',
+  cameraStopCounter:0,
   connectedLevel:0,
   connected:'',
   magneticHeading:0,
@@ -67,10 +68,18 @@ samobot = {
   lifeCamera: function(){
     try {   
       CameraPreview.takePicture({width:240, height:240, quality: 80}, function(base64PictureData) {
-        samobot.imageSrcData = document.getElementById('previewPicture').src = 'data:image/jpeg;base64,' + base64PictureData;
+        base64PictureData = 'data:image/jpeg;base64,' + base64PictureData
+        if (samobot.imageSrcData == base64PictureData) {
+          samobot.cameraStopCounter++;
+        }
+        if(samobot.cameraStopCounter > 10 ) {
+          samobot.cameraStopCounter = 0;
+          CameraPreview.stopCamera(samobot.cameraPreview, samobot.cameraPreview);
+        }
+        samobot.imageSrcData = document.getElementById('previewPicture').src = base64PictureData;
       });
     } catch(err) {
-      samobot.cameraPreview();
+      CameraPreview.stopCamera(samobot.cameraPreview, samobot.cameraPreview);
     } finally {
        setTimeout(samobot.lifeCamera, 500);
     }    
