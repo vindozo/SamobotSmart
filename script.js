@@ -54,8 +54,8 @@ samobot = {
     CameraPreview.startCamera({
       x: cameraElem.left,
       y: cameraElem.top,
-      width: 10,
-      height: 10,
+      width: 1,
+      height: 1,
       camera: CameraPreview.CAMERA_DIRECTION.FRONT, //BACK
       toBack: false,
       tapPhoto: true,
@@ -69,7 +69,7 @@ samobot = {
   lifeCamera: function(){
     try {   
       //CameraPreview.takePicture({width:240, height:240, quality: 80}, function(base64PictureData) {
-      CameraPreview.takeSnapshot({quality: 85}, function(base64PictureData){
+      CameraPreview.takeSnapshot({quality: 80}, function(base64PictureData){
         base64PictureData = 'data:image/jpeg;base64,' + base64PictureData
         samobot.imageSrcData = document.getElementById('previewPicture').src = base64PictureData;
       });
@@ -137,13 +137,14 @@ samobot = {
 
 function onDeviceReady() { 
   window.plugins.insomnia.keepAwake(); 
+  /*
   navigator.geolocation.watchPosition(samobot.geolocation, samobot.geolocationError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
   window.addEventListener("batterystatus", samobot.batteryStatus, false);
-  setInterval(samobot.lifeClock, 1000);
+  setInterval(samobot.lifeClock, 1000);*/
   samobot.cameraPreview();
-  samobot.lifeCamera();
+  samobot.lifeCamera();/*
   samobot.lifeSignal();
-  navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
+  navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});*/
   document.getElementById('UIN').innerHTML = device.uuid;
   setTimeout(samobot.lifeOnline, 5000);
 }
