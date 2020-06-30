@@ -65,10 +65,15 @@ samobot = {
   },
   
   lifeCamera: function(){
-    CameraPreview.takePicture({width:240, height:240, quality: 80}, function(base64PictureData) {
-      samobot.imageSrcData = document.getElementById('previewPicture').src = 'data:image/jpeg;base64,' + base64PictureData;
-    });
-    setTimeout(samobot.lifeCamera, 500);
+    try {   
+      CameraPreview.takePicture({width:240, height:240, quality: 80}, function(base64PictureData) {
+        samobot.imageSrcData = document.getElementById('previewPicture').src = 'data:image/jpeg;base64,' + base64PictureData;
+      });
+    } catch(err) {
+      samobot.cameraPreview();
+    } finally {
+       setTimeout(samobot.lifeCamera, 500);
+    }    
   },
   
   lifeSignal:function(){
@@ -96,6 +101,7 @@ samobot = {
   },
   
   lifeOnline: async function(){
+     try {
        var api = await fetch(samobot.api + '?action=online&key=' + samobot.key + '&uin=' +device.uuid, {
           method: 'POST',
           body: JSON.stringify({
@@ -119,12 +125,10 @@ samobot = {
           e.classList.remove('online');
           e.classList.add('offline');
        }
-  },
-  
-  lifeOnlineStart: function(){
-    setInterval(samobot.lifeOnline, 500);
+    } finally {
+       setTimeout(samobot.lifeOnline, 500);
+    }
   }
-
 }
 
 function onDeviceReady() { 
@@ -137,7 +141,7 @@ function onDeviceReady() {
   samobot.lifeSignal();
   navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
   document.getElementById('UIN').innerHTML = device.uuid;
-  setTimeout(samobot.lifeOnlineStart, 5000);
+  setTimeout(samobot.lifeOnline, 5000);
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
