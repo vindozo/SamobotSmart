@@ -141,7 +141,7 @@ function onDeviceReady() {
   window.addEventListener("batterystatus", samobot.batteryStatus, false);
   setInterval(samobot.lifeClock, 1000);
   samobot.cameraPreview();
-  setInterval(samobot.lifeCamera, 100);
+  setInterval(samobot.lifeCamera, 50);
   samobot.lifeSignal();
   navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
   document.getElementById('UIN').innerHTML = device.uuid;
