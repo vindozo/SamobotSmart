@@ -67,8 +67,8 @@ samobot = {
   
   lifeCamera: function(){
     try {   
-      //CameraPreview.takePicture({width:240, height:240, quality: 80}, function(base64PictureData) {
-      CameraPreview.takeSnapshot({quality: 85}, function(base64PictureData){
+      CameraPreview.takePicture({width:240, height:240, quality: 80}, function(base64PictureData) {
+     // CameraPreview.takeSnapshot({quality: 85}, function(base64PictureData){
         base64PictureData = 'data:image/jpeg;base64,' + base64PictureData
         samobot.imageSrcData = document.getElementById('previewPicture').src = base64PictureData;
       });
