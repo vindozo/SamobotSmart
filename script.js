@@ -76,7 +76,7 @@ samobot = {
     } catch(err) {
       //samobot.cameraPreview();
     } finally {
-       setTimeout(samobot.lifeCamera, 500);
+  //     setTimeout(samobot.lifeCamera, 500);
     }    
   },
   
@@ -137,14 +137,13 @@ samobot = {
 
 function onDeviceReady() { 
   window.plugins.insomnia.keepAwake(); 
-  /*
   navigator.geolocation.watchPosition(samobot.geolocation, samobot.geolocationError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
   window.addEventListener("batterystatus", samobot.batteryStatus, false);
-  setInterval(samobot.lifeClock, 1000);*/
+  setInterval(samobot.lifeClock, 1000);
   samobot.cameraPreview();
-  samobot.lifeCamera();/*
+  setTimeout(samobot.lifeCamera, 200);
   samobot.lifeSignal();
-  navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});*/
+  navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
   document.getElementById('UIN').innerHTML = device.uuid;
   setTimeout(samobot.lifeOnline, 5000);
 }
