@@ -100,8 +100,11 @@ samobot = {
     samobot.magneticHeading = document.getElementById('compas').innerHTML = heading.magneticHeading;
   },
 
-  magneticHeadingError:function(compassError) {
-   alert('Compass error: ' + compassError.code);
+  magneticHeadingError:function(compassError) { 
+    if (samobot.magneticHeading != compassError.code) {
+     alert('Compass error: ' + compassError.code);
+    } 
+     samobot.magneticHeading = compassError.code;
   },
   
   lifeOnline: async function(){
@@ -132,8 +135,32 @@ samobot = {
     } finally {
        setTimeout(samobot.lifeOnline, 100);
     }
+  },
+    
+  ledon: function() {
+    window.plugins.Firmata.isOpen(function(e){
+      if(!e){
+        alert('not open');
+        window.plugins.Firmata.connect({
+          success: function(e){
+                alert('android connected');
+        }, error:  function(e){
+          alert('android error' + e);
+        }
+       );                                 )
+      } else {
+         alert('open');
+      }                                
+    }); 
+    
+  },
+  
+  ledooff: function() {
   }
 }
+
+
+
 
 function onDeviceReady() { 
   window.plugins.insomnia.keepAwake(); 
