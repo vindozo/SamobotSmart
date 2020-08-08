@@ -13,7 +13,7 @@
     <engine name="android" spec="7.0.0" />
 
     
-    <preference name="orientation"                value="portrait" />
+    <preference name="orientation"                value="landscape" />
     <preference name="target-device"              value="universal" />
     <preference name="fullscreen"                 value="false" />
     <preference name="webviewbounce"              value="true" />
@@ -42,6 +42,8 @@
     <plugin name="cordova-plugin-vibration" source="npm" />
     
     <plugin name="cordova-signal-level" spec="https://github.com/vindozo/cordova-signal-level.git" />
+
+    <plugin name="cordova-firmata" spec="https://github.com/doublerz/cordova-firmata.git" />      
         
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
