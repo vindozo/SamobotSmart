@@ -39,10 +39,7 @@
     <plugin name="cordova-plugin-camera-preview" version="0.11.1" source="npm" />
     <plugin name="cordova-plugin-device" source="npm" />
     <plugin name="cordova-plugin-vibration" source="npm" />
-    
     <plugin name="cordova-signal-level" spec="https://github.com/vindozo/cordova-signal-level.git" />
-
-    <plugin name="cordova-firmata" spec="https://github.com/doublerz/cordova-firmata.git" />      
         
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
