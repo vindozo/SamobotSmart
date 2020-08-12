@@ -137,26 +137,6 @@ samobot = {
     }
   },
     
-  ledon: function() {
-    window.plugins.Firmata.isOpen(function(e){
-      if(!e){
-        alert('not open');
-        window.plugins.Firmata.connect({
-          success: function(e){
-                alert('android connected');
-        }, error:  function(e){
-          alert('android error' + e);
-        }
-       );                                 )
-      } else {
-         alert('open');
-      }                                
-    }); 
-    
-  },
-  
-  ledooff: function() {
-  }
 }
 
 
