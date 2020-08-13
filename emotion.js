@@ -19,6 +19,16 @@
     vibrate: function (color) {
       navigator.vibrate([1000, 1000, 3000, 1000, 5000]);
     },
+    
+    switchOn: function (successCallback, errorCallback) {
+        this.isSwitchedOn = true;
+        cordova.exec(successCallback, errorCallback, "Flashlight", "switchOn", []);
+    },
+
+    switchOff: function (successCallback, errorCallback) {
+        this.isSwitchedOn = false;
+        cordova.exec(successCallback, errorCallback, "Flashlight", "switchOff", []);
+    },
 
     off: function () { /* выключить */
       this.color('black');
