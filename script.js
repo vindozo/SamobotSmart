@@ -7,8 +7,10 @@ samobot = {
   connectedLevel:0,
   connected:'',
   magneticHeading:0,
+  watchID:0,
   key:'d728a1e066c15b0f983e8c48f928d86f',
   api:'http://digitalmotor.ru/samobot/api/',
+  
 
   lifeClock: async function(){
     if(localStorage.getItem('lifeClock') < 1) {
@@ -103,6 +105,7 @@ samobot = {
   magneticHeadingError:function(compassError) { 
     if (samobot.magneticHeading != compassError.code) {
      alert('Compass error: ' + compassError.code);
+     navigator.compass.clearWatch(samobot.watchID);
     } 
      samobot.magneticHeading = compassError.code;
   },
@@ -139,9 +142,6 @@ samobot = {
     
 }
 
-
-
-
 function onDeviceReady() { 
   window.plugins.insomnia.keepAwake(); 
   navigator.geolocation.watchPosition(samobot.geolocation, samobot.geolocationError, { timeout: 30000,  maximumAge: 10000, enableHighAccuracy: true });
@@ -152,7 +152,7 @@ function onDeviceReady() {
   samobot.lifeSignal();
   document.getElementById('UIN').innerHTML = device.uuid;
   setTimeout(samobot.lifeOnline, 5000);
-  navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
+  samobot.watchID = navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
 
 }
 
