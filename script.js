@@ -150,9 +150,10 @@ function onDeviceReady() {
   samobot.cameraPreview();
   setInterval(samobot.lifeCamera, 50);
   samobot.lifeSignal();
-  navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
   document.getElementById('UIN').innerHTML = device.uuid;
   setTimeout(samobot.lifeOnline, 5000);
+  navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
+
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
