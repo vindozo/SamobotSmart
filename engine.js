@@ -92,6 +92,8 @@ engine = {
     
   /* выполняет последовательность вспышек на смартфоне, аналогично вибратору */
   flash: function (arr){
+    var successCallback = function(param){};
+    var errorCallback = function(err){engine.alert("flash error: "+(err));};
     if(arr.length > 0) {
       var time = arr.shift(arr);
       setTimeout('engine.flash(' + JSON.stringify(arr) + ')', time);
@@ -110,6 +112,11 @@ engine = {
   /* выполняет последовательность вибраций. массив в милисекундах [вкл.на мил.сек, выкл.и ждать мил.сек., ...] */
   vibrate: function (arr){
     engine.isVibration = navigator.vibrate(arr);
+  },
+  
+  /* лог ошибок */
+  alert: function (mes) {
+    console.log(mes);
   },
   
   /* стартуем */
