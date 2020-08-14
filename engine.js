@@ -66,11 +66,6 @@ engine = {
     engine.battery = document.getElementById("bat").innerHTML = info.level; 
   },
   
-  /* запуск превью камеры */
-  cameraPreview: function() {
-
-  },
-  
   /* обновление камеры */
   lifeCamera: function(){ 
       CameraPreview.takeSnapshot({quality: 80}, function(base64PictureData){
