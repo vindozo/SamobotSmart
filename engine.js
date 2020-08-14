@@ -40,11 +40,7 @@ engine = {
   
   /* ошибки GPS */
   errorGeolocation: function(error) {
-    if (engine.gpsError != error.code) {
-      engine.alert('GPS Error. code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
-      //navigator.geolocation.clearWatch(engine.watchIDgps);
-    }
-    engine.gpsError = error.code;
+    /* игнорируем */
   },
   
   /* обновление компаса */
