@@ -22,12 +22,12 @@
     
     switchOn: function (successCallback, errorCallback) {
         this.isSwitchedOn = true;
-        cordova.exec(successCallback, errorCallback, "Flashlight", "switchOn", []);
+        Flashlight.switchOn();
     },
 
     switchOff: function (successCallback, errorCallback) {
         this.isSwitchedOn = false;
-        cordova.exec(successCallback, errorCallback, "Flashlight", "switchOff", []);
+        Flashlight.switchOff();
     },
 
     off: function () { /* выключить */
