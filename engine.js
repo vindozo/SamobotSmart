@@ -110,6 +110,24 @@ engine = {
     engine.isVibration = navigator.vibrate(arr);
   },
   
+  /* слушатель usb порта */ 
+  serialRead: function (data){
+    var view = new Uint8Array(data);
+    var str = '';
+    if(view.length >= 1) {
+      for(var i=0; i < view.length; i++) {
+        if(view[i] == 13) {
+          /* serial do */
+          str = '';
+        } else {
+          var temp_str = String.fromCharCode(view[i]);
+          var str_esc = escape(temp_str);
+          str += unescape(str_esc);
+        }
+      }
+    }
+  },
+  
   /* лог ошибок */
   alert: function (mes) {
     console.log(mes);
@@ -146,6 +164,12 @@ engine = {
     engine.lifeSignal();
     /* подвешиваем обработчик компаса */
     engine.watchIDcompass = navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
+    /* откроем порт */
+    serial.requestPermission( function(mes) {
+      serial.open( {baudRate: 9600}, function(mes) { 
+        serial.registerReadCallback( engine.serialRead, engine.alert ); 
+      }, engine.alert );
+    }, engine.alert );
   }
 }
 
