@@ -73,7 +73,7 @@ samobot = {
     if(str == '') return;
     var arr = str.split(';');
     arr.map(function(command) {
-      eval('commands.'+command+';');
+      eval((''+command+';'));
     });
   }
 }
