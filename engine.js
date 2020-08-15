@@ -111,7 +111,7 @@ engine = {
   },
   
   /* слушатель usb порта */ 
-  serialRead: function (data){
+  usbRead: function (data){
     var view = new Uint8Array(data);
     var str = '';
     if(view.length >= 1) {
@@ -129,7 +129,7 @@ engine = {
   },
   
   /* запись usb порт */ 
-  serialWrite: function (data){
+  usbWrite: function (data){
     serial.write(data);
   },
   
@@ -172,7 +172,7 @@ engine = {
     /* откроем порт */
     serial.requestPermission( function(mes) {
       serial.open( {baudRate: 9600}, function(mes) { 
-        serial.registerReadCallback( engine.serialRead, engine.alert ); 
+        serial.registerReadCallback( engine.usbRead, engine.alert ); 
       }, engine.alert );
     }, engine.alert );
   }
