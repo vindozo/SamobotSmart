@@ -41,6 +41,7 @@
     <plugin name="cordova-plugin-vibration" source="npm" />
     <plugin name="cordova-signal-level" spec="https://github.com/vindozo/cordova-signal-level.git" />
     <plugin name="cordova-plugin-flashlight" spec="3.2.0" source="npm" />    
+    <plugin name="cordova-plugin-serial" source="npm" />
     
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
