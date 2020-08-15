@@ -128,6 +128,11 @@ engine = {
     }
   },
   
+  /* запись usb порт */ 
+  serialWrite: function (data){
+    serial.write(data);
+  },
+  
   /* лог ошибок */
   alert: function (mes) {
     console.log(mes);
