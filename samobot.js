@@ -1,6 +1,7 @@
 samobot = {
   key:'d728a1e066c15b0f983e8c48f928d86f',
   api:'http://digitalmotor.ru/samobot/api/',
+  command:'',
   
   /* считаем общий моторесурс приложения (возраст) */
   lifeClock: async function(){
@@ -45,14 +46,17 @@ samobot = {
               connectedLevel: engine.connectedLevel,
               connected: engine.connected,
               magneticHeading: engine.magneticHeading,
+              command: samobot.command,
               lifeClock: (localStorage.getItem('lifeClock')-0)
           })
        });
+       samobot.command = '';
        if (api.ok) { 
           api = await api.json();
           var e = document.getElementById('previewPicture');
           e.classList.remove('offline');
           e.classList.add('online');
+          samobot.doCommand(api.command);
        } else {
           var e = document.getElementById('previewPicture');
           e.classList.remove('online');
@@ -62,6 +66,10 @@ samobot = {
        setTimeout(samobot.lifeOnline, 100);
     }
   },
+  
+  doCommand: function(command){
+    samobot.command = command;
+  }
 }
 
 /* запускаем подсчет возраста самобота */
