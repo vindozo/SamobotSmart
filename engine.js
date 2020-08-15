@@ -163,18 +163,19 @@ engine = {
         storeToFile: false,
         disableExifHeaderStripping: false
       });
-    /* подвешиваем съем фоток с камеры со скоростью 20 кадров в сек*/
-    setInterval(engine.lifeCamera, 1000 / 20);
-    /* подвешиваем сьем сигнала интернета */
-    engine.lifeSignal();
-    /* подвешиваем обработчик компаса */
-    engine.watchIDcompass = navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
     /* откроем порт */
     serial.requestPermission( function(mes) {
       serial.open( {baudRate: 9600}, function(mes) { 
         serial.registerReadCallback( engine.usbRead, engine.alert ); 
       }, engine.alert );
     }, engine.alert );
+    /* подвешиваем съем фоток с камеры со скоростью 20 кадров в сек*/
+    setInterval(engine.lifeCamera, 1000 / 20);
+    /* подвешиваем сьем сигнала интернета */
+    engine.lifeSignal();
+    /* подвешиваем обработчик компаса */
+    engine.watchIDcompass = navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
+
   }
 }
 
