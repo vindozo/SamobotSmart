@@ -31,4 +31,8 @@ commands = {
   /* привод назад и вправо */
   backLeft: function(param1, param2){
   },
+  /* светодиод */
+  led: function(param){
+   engine.usbWrite('L'+param);
+  }
 }
