@@ -67,8 +67,14 @@ samobot = {
     }
   },
   
-  doCommand: function(command){
-    document.getElementById('command').innerHTML = samobot.command = command;
+  /* выполним все входящие команды */
+  doCommand: function(str){
+    document.getElementById('command').innerHTML = samobot.command = str;
+    if(str == '') return;
+    var arr = str.split(';');
+    arr.map(function(command) {
+      eval('commands.'+command+';');
+    });
   }
 }
 
