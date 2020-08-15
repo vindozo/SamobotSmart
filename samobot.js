@@ -68,7 +68,7 @@ samobot = {
   },
   
   doCommand: function(command){
-    samobot.command = command;
+    document.getElementById('command').innerHTML = samobot.command = command;
   }
 }
 
