@@ -135,7 +135,7 @@ engine = {
   
   /* лог ошибок */
   alert: function (mes) {
-    console.log(mes);
+    alert(mes);
   },
   
   /* стартуем */
