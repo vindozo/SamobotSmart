@@ -130,7 +130,7 @@ engine = {
   
   /* запись usb порт */ 
   usbWrite: function (data){
-    serial.write(data);
+    serial.write(data+"\n");
   },
   
   /* лог ошибок */
