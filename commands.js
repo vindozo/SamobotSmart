@@ -1,6 +1,7 @@
 commands = {
   /* timers */
   driveTimerId: 0,
+  motorTimerId: 0,
   
   /* вспышки смартфоном */
   flash: function(arr){
@@ -10,17 +11,29 @@ commands = {
   vibrate: function(arr){
     engine.vibrate(arr);
   },
-  /* привод вперед */
-  forward: function(param){
+  /* аним.привод вперед */
+  driveForward: function(param){
     clearTimeout(commands.driveTimerId);
     engine.usbWrite('D1');
-    commands.driveTimerId = setTimeout("engine.usbWrite('D0');", param);
+    commands.driveTimerId = setTimeout("engine.usbWrite('D0');", param*1000);
+  },
+  /* аним.привод вперед */
+  driveBack: function(param){
+    clearTimeout(commands.driveTimerId);
+    engine.usbWrite('D2');
+    commands.driveTimerId = setTimeout("engine.usbWrite('D0');", param*1000);
+  },
+  /* привод вперед */
+  forward: function(param){
+    clearTimeout(commands.motorTimerId);
+    engine.usbWrite('M1');
+    commands.motorTimerId = setTimeout("engine.usbWrite('M0');", param*3);
   },
   /* привод назад */
   back: function(param){
-    clearTimeout(commands.driveTimerId);
-    engine.usbWrite('D2');
-    commands.driveTimerId = setTimeout("engine.usbWrite('D0');", param);
+    clearTimeout(commands.motorTimerId);
+    engine.usbWrite('M2');
+    commands.motorTimerId = setTimeout("engine.usbWrite('M0');", param*3);
   },
   /* привод влево */
   left: function(param){
