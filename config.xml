@@ -42,7 +42,8 @@
     <plugin name="cordova-signal-level" spec="https://github.com/vindozo/cordova-signal-level.git" />
     <plugin name="cordova-plugin-flashlight" spec="3.2.0" source="npm" />    
     <plugin name="cordova-plugin-serial" source="npm" />
-    
+    <plugin name="cordova-plugin-bluetooth-serial" source="npm" />
+       
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
