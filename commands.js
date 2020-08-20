@@ -3,6 +3,9 @@ commands = {
   driveTimerId: 0,
   motorTimerId: 0,
   
+  /* Сервопривод по центру */
+  servoCenter:45,
+  
   /* вспышки смартфоном */
   flash: function(arr){
     engine.flash(arr);
@@ -37,12 +40,20 @@ commands = {
   },
   /* привод влево */
   left: function(param){
-    var angle = Math.floor(45 + (45 / param ));
+    if(param == 0) {
+      var angle = command.servoCenter;
+    } else {
+      var angle = Math.floor(command.servoCenter + ( param / ( param / command.servoCenter) ));
+    }
     engine.arduinoWrite('S'+ angle);
   },
   /* привод вправо */
   right: function(param){
-    var angle = Math.floor(45 - (45 / param ));
+    if(param == 0) {
+      var angle = command.servoCenter;
+    } else {
+      var angle = Math.floor(command.servoCenter - ( param / ( param / command.servoCenter) ));
+    }
     engine.arduinoWrite('S'+ angle);
   },
   /* привод вперед и влево */
