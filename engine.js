@@ -35,7 +35,7 @@ engine = {
   /* bluetooth */
   bluetoothId:'98:D3:61:F5:F1:E1',
   
-  /* тип соединения с arduino - usb (OTG) или bluetooth
+  /* тип соединения с arduino - usb (OTG) или bluetooth */
   arduinoConnect:'',
 
   /* обновление GPS */
