@@ -41,7 +41,7 @@ commands = {
     engine.arduinoWrite('S'+ angle);
   },
   /* привод вправо */
-  forward: function(param){
+  right: function(param){
     var angle = Math.floor(45 - (45 / param ));
     engine.arduinoWrite('S'+ angle);
   },
