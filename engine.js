@@ -193,13 +193,13 @@ engine = {
     serial.requestPermission( function(mes) {
       serial.open( {baudRate: 9600}, function(mes) { 
         serial.registerReadCallback( engine.usbRead, engine.alert ); 
-        engine.arduinoConnect = 'usb';
+        engine.arduinoConnect = document.getElementById("arduino").innerHTML = 'usb';
       }, engine.alert );
     }, engine.alert );
     /* откроем bluetooth */
     bluetoothSerial.connectInsecure(engine.bluetoothId, function(mes) {
      bluetoothSerial.subscribe('\n', engine.bluetoothRead, engine.alert);  
-      engine.arduinoConnect = 'bluetooth';
+      engine.arduinoConnect = document.getElementById("arduino").innerHTML = 'bluetooth';
     }, engine.alert );
     /* подвешиваем съем фоток с камеры со скоростью 20 кадров в сек*/
     setInterval(engine.lifeCamera, 1000 / 20);
