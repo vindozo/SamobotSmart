@@ -31,6 +31,12 @@ engine = {
   
   /* uin оборудования */
   uin:'',
+  
+  /* bluetooth */
+  bluetoothId:'98:D3:61:F5:F1:E1',
+  
+  /* тип соединения с arduino - usb (OTG) или bluetooth
+  arduinoConnect:'',
 
   /* обновление GPS */
   lifeGeolocation: function(position) {
@@ -131,6 +137,26 @@ engine = {
   /* запись usb порт */ 
   usbWrite: function (data){
     serial.write(data+"\n");
+  },  
+  
+  /* слушатель bluetooth порта */ 
+  bluetoothRead: function (data){
+    /* serial do */
+  },
+  
+  /* запись bluetooth порт */ 
+  bluetoothWrite: function (data){
+    bluetoothSerial.write(data+"\n");
+  },
+  
+  /* передача команд в arduino */
+  arduinoWrite: function (data) {
+    if(engine.arduinoConnect == 'usb') {
+      engine.usbWrite(data);
+    };
+    if(engine.arduinoConnect == 'bluetooth') {
+      engine.bluetoothWrite(data);
+    };
   },
   
   /* лог ошибок */
@@ -167,7 +193,13 @@ engine = {
     serial.requestPermission( function(mes) {
       serial.open( {baudRate: 9600}, function(mes) { 
         serial.registerReadCallback( engine.usbRead, engine.alert ); 
+        engine.arduinoConnect = 'usb';
       }, engine.alert );
+    }, engine.alert );
+    /* откроем bluetooth */
+    bluetoothSerial.connectInsecure(engine.bluetoothId, function(mes) {
+     bluetoothSerial.subscribe('\n', engine.bluetoothRead, engine.alert);  
+      engine.arduinoConnect = 'bluetooth';
     }, engine.alert );
     /* подвешиваем съем фоток с камеры со скоростью 20 кадров в сек*/
     setInterval(engine.lifeCamera, 1000 / 20);
