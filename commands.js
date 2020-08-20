@@ -41,18 +41,18 @@ commands = {
   /* привод влево */
   left: function(param){
     if(param == 0) {
-      var angle = command.servoCenter;
+      var angle = commands.servoCenter;
     } else {
-      var angle = Math.floor(command.servoCenter + ( param / ( param / command.servoCenter) ));
+      var angle = Math.floor(commands.servoCenter + ( param / ( param / commands.servoCenter) ));
     }
     engine.arduinoWrite('S'+ angle);
   },
   /* привод вправо */
   right: function(param){
     if(param == 0) {
-      var angle = command.servoCenter;
+      var angle = commands.servoCenter;
     } else {
-      var angle = Math.floor(command.servoCenter - ( param / ( param / command.servoCenter) ));
+      var angle = Math.floor(commands.servoCenter - ( param / ( param / commands.servoCenter) ));
     }
     engine.arduinoWrite('S'+ angle);
   },
