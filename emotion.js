@@ -1,5 +1,5 @@
   emotion = {
-    audioPath: 'http://digitalmotor.ru/samobot/data/audio/',
+    audioPath: 'http://samobot.ru/data/audio/',
 
     e: function () { 
       return document.querySelector('#emotion') 
