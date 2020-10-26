@@ -13,7 +13,7 @@
     <engine name="android" spec="7.0.0" />
 
     
-    <preference name="orientation"                value="landscape" />       
+    <preference name="orientation"                value="portrait" />       
     <preference name="target-device"              value="universal" />
     <preference name="fullscreen"                 value="false" />
     <preference name="webviewbounce"              value="true" />
