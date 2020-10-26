@@ -1,6 +1,6 @@
 samobot = {
   key:'d728a1e066c15b0f983e8c48f928d86f',
-  api:'http://digitalmotor.ru/samobot/api/',
+  api:'http://samobot.ru/api/',
   command:'',
   
   /* считаем общий моторесурс приложения (возраст) */
