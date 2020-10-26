@@ -52,3 +52,6 @@ footer .data{
   border:5px solid green;
 }
 
+#screen, infoScreen{
+  transform: rotate(90deg);
+}
