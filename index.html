@@ -7,77 +7,60 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id=screen>
+    <div id="screen">
       <div>
           <svg id="emotion" class="eye-black" >
             <rect class="eye-left" x="55" y="50" width="90" height="90" rx="20" ry="20"/> 
             <rect class="eye-right" x="155" y="50" width="90" height="90" rx="20" ry="20"/>
           </svg>
       </div>
-      <div>
-        <button onclick="samobot.ledon()">on</button> 
-        <button onclick="samobot.ledoff()">off</button> 
-        <br><br>
-        <button onclick="emotion.color('red')">Красный</button>
-        <button onclick="emotion.color('green')">Зеленый</button>
-        <button onclick="emotion.color('blue')">Синий</button>
-        <br><br>
-        <button onclick="emotion.off()">Выключить</button>
-        <button onclick="emotion.neutral()">Нейтральный</button>
-        <button onclick="emotion.surprise()">Сюрприз</button>
-        <button onclick="emotion.attack()">Злой</button>
-        <button onclick="emotion.sad()">Грустный</button>
-        <button onclick="emotion.like()">Счастье</button>
-        <br><br>
-        <button onclick="engine.vibrate([300,200,300])">Вибратор</button>
-        <button onclick="engine.flash([300,200,300])">Вспышка</button>
-        <button onclick="engine.vibrate([300,200,300,200,300]);engine.flash([300,200,300,200,30])>Вспышка+вибратор</button>
-      </div>      
-      <div class="pictures" >
-        <br>
-        <img id="previewPicture" width="160" height="160" class="offline" style="border-radius:50%"/>
-      </div>
-      <footer>
-        <div class="info">
-        <div>
-          //DIGITALMOTOR.RU/<span class='data'>SAMOBOT</span> 
+      <div id="infoScreen">
+          <div class="pictures" >
+            <br>
+            <img id="previewPicture" width="160" height="160" class="offline" style="border-radius:50%"/>
+          </div>
+          <footer>
+            <div class="info">
+            <div>
+              //DIGITALMOTOR.RU/<span class='data'>SAMOBOT</span> 
+            </div>
+            <div>
+              ТЕХПОДДЕРЖКА <span class='data'>+79655237040 </span>
+            </div>
+            <div>
+              ИМЯ <span class='data' id="name">ШАРМАНЩИК №1</span> / 1.0
+            </div>
+            <div>
+              АКТИВИРОВАН &nbsp;&nbsp;&nbsp;<span class='data' id="lifeBorn"></span>
+            </div>
+            <div>
+              МОТОРЕСУРС <span class='data' id="lifeClock"></span>
+            </div>
+            <div>
+              GPS LAT <span class='data' id="gpsLat"></span>
+            </div>   
+            <div>
+              &nbsp;&nbsp;&nbsp;&nbsp;LON <span class='data' id="gpsLon"></span>
+            </div>        
+            <div>
+              КОМПАС <span class='data' id="compas">---</span>° 
+            </div> 
+            <div>
+              БАТАРЕЯ <span class='data' id="bat">---</span>% 
+              СИГНАЛ <span class='data' id="dbm">---</span>    
+            </div>   
+            <div>
+              UIN <span class='data' id="UIN"></span>
+            </div> 
+            <div>
+              Arduino <span class='data' id="arduino"></span>
+            </div> 
+            <div>
+              КОММАНДА <span class='data' id="command"></span>
+            </div>               
+            <div>
+          </footer>
         </div>
-        <div>
-          ТЕХПОДДЕРЖКА <span class='data'>+79655237040 </span>
-        </div>
-        <div>
-          ИМЯ <span class='data' id="name">ШАРМАНЩИК №1</span> / 1.0
-        </div>
-        <div>
-          АКТИВИРОВАН &nbsp;&nbsp;&nbsp;<span class='data' id="lifeBorn"></span>
-        </div>
-        <div>
-          МОТОРЕСУРС <span class='data' id="lifeClock"></span>
-        </div>
-        <div>
-          GPS LAT <span class='data' id="gpsLat"></span>
-        </div>   
-        <div>
-          &nbsp;&nbsp;&nbsp;&nbsp;LON <span class='data' id="gpsLon"></span>
-        </div>        
-        <div>
-          КОМПАС <span class='data' id="compas">---</span>° 
-        </div> 
-        <div>
-          БАТАРЕЯ <span class='data' id="bat">---</span>% 
-          СИГНАЛ <span class='data' id="dbm">---</span>    
-        </div>   
-        <div>
-          UIN <span class='data' id="UIN"></span>
-        </div> 
-        <div>
-          Arduino <span class='data' id="arduino"></span>
-        </div> 
-        <div>
-          КОММАНДА <span class='data' id="command"></span>
-        </div>               
-        <div>
-      </footer>
     </div>
     <script type="text/javascript" src="emotion.js"></script>
     <script type="text/javascript" src="engine.js"></script>
