@@ -60,7 +60,7 @@ footer .data{
   display: none;
 }
 #previewPicture{
-  transform: translateY(100px) rotate(180deg);
+  transform: translateY(300px) rotate(180deg);
 }
 .info{
   transform: translateY(-300px) translateX(100px) rotate(90deg);
