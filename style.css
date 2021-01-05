@@ -52,7 +52,7 @@ footer .data{
   border:5px solid green;
 }
 
-#screen{
+#faceScreen{
   transform: scaleY(2) scaleX(1.5) translateY(100px) rotate(90deg);
 }
 
