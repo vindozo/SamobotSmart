@@ -57,10 +57,11 @@ footer .data{
 }
 
 #infoScreen{
-  transform: rotate(90deg);
   display: none;
 }
-
+#previewPicture{
+  transform: translateY(300px) rotate(270deg);
+}
 .info{
   transform: rotate(270deg);
 }
