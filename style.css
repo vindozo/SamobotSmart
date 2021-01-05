@@ -53,7 +53,7 @@ footer .data{
 }
 
 #screen{
-  transform: scaleY(3.5) scaleX(2) translateY(100px) rotate(90deg);
+  transform: scaleY(2.5) scaleX(2) translateY(100px) rotate(90deg);
 }
 
 #infoScreen{
