@@ -1,9 +1,11 @@
   emotion = {
-    audioPath: 'http://samobot.ru/data/audio/',
+  /*  audioPath: 'http://samobot.ru/data/audio/', */
+    audioPath: 'file:///Samobot/furby/',
     
     loop: function(){
       /* повторим эту функцию чезез 3-15 сек */
       setTimeout("emotion.loop()", Math.floor(Math.random() * 12 + 3) * 1000);
+      this.audio((Math.floor(Math.random() * 43) + 1) + '.mp3');
       switch (Math.floor(Math.random() * 5)) {
           case 1:
             emotion.sad();
