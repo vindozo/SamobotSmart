@@ -61,4 +61,8 @@ footer .data{
   display: none;
 }
 
+.info{
+  transform: rotate(90deg);
+}
+
  
