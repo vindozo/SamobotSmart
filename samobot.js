@@ -69,7 +69,7 @@ samobot = {
   
   /* выводим информационное окно */
   showInfo: function(){
-    document.getElementById('screen').style.display = 'none';
+    document.getElementById('faceScreen').style.display = 'none';
     document.getElementById('infoScreen').style.display = 'block';
     setTimeout("samobot.hideInfo()", 5000);
   },
@@ -77,7 +77,7 @@ samobot = {
   /* прячем информационное окно */
   hideInfo: function(){
     document.getElementById('infoScreen').style.display = 'none';
-    document.getElementById('screen').style.display = 'block';        
+    document.getElementById('faceScreen').style.display = 'block';        
   },
   
   /* выполним все входящие команды */
