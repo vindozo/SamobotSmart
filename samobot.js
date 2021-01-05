@@ -75,7 +75,7 @@ samobot = {
   },
   
   /* прячем информационное окно */
-  showInfo: function(){
+  hideInfo: function(){
     document.getElementById('screenInfo').style.display = 'none';
     document.getElementById('screen').style.display = 'block';        
   },
