@@ -70,13 +70,13 @@ samobot = {
   /* выводим информационное окно */
   showInfo: function(){
     document.getElementById('screen').style.display = 'none';
-    document.getElementById('screenInfo').style.display = 'block';
+    document.getElementById('infoScreen').style.display = 'block';
     setTimeout("samobot.hideInfo()", 5000);
   },
   
   /* прячем информационное окно */
   hideInfo: function(){
-    document.getElementById('screenInfo').style.display = 'none';
+    document.getElementById('infoScreen').style.display = 'none';
     document.getElementById('screen').style.display = 'block';        
   },
   
