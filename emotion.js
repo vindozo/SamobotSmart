@@ -1,11 +1,10 @@
   emotion = {
     audioPath: 'http://samobot.ru/data/audio/',
     
-    status: 0,
-    
     loop: function(){
-      emotion.status = Math.floor(Math.random() * 5);
-      switch (emotion.status) {
+      /* повторим эту функцию чезез 3-15 сек */
+      setTimeout(emotion.loop, Math.floor(Math.random() * 12 + 3) * 1000);
+      switch (Math.floor(Math.random() * 5)) {
           case 1:
             emotion.sad();
           break;
@@ -21,8 +20,6 @@
           default:
             emotion.neutral();
       }
-      /* повторим эту функцию чезез 3-15 сек */
-      setTimeout(emotion.loop, Math.floor(Math.random() * 12000) + 3000);
     },
 
     e: function () { 
@@ -100,3 +97,4 @@
   }
 
 setTimeout(emotion.loop, 10000);
+setTimeout(emotion.neutral, 8000);
