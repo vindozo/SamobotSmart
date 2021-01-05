@@ -60,10 +60,10 @@ footer .data{
   display: none;
 }
 #previewPicture{
-  transform: translateY(-300px) rotate(180deg);
+  transform: rotate(180deg);
 }
 .info{
-  transform: translateY(-100px) rotate(90deg);
+  transform: translateY(-400px) rotate(90deg);
 }
 
  
