@@ -63,7 +63,7 @@ footer .data{
   transform: rotate(180deg);
 }
 .info{
-  transform: translateY(-400px) rotate(90deg);
+  transform: translateY(-300px) translateX(100px) rotate(90deg);
 }
 
  
