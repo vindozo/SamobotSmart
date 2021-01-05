@@ -1,6 +1,6 @@
   emotion = {
   /*  audioPath: 'http://samobot.ru/data/audio/', */
-    audioPath: 'file:///Samobot/furby/',
+    audioPath: 'mp3/',
     
     loop: function(){
       /* повторим эту функцию чезез 3-15 сек */
