@@ -1,5 +1,29 @@
   emotion = {
     audioPath: 'http://samobot.ru/data/audio/',
+    
+    status: 0,
+    
+    loop: function(){
+      emotion.status = Math.floor(Math.random() * 5);
+      switch (emotion.status) {
+          case 1:
+            emotion.sad();
+          break;
+          case 2:
+            emotion.like();
+          break;
+          case 3:
+            emotion.attack();
+          break;
+          case 4:
+            emotion.surprise();
+          break;
+          default:
+            emotion.neutral();
+      }
+      /* повторим эту функцию чезез 3-15 сек */
+      setTimeout(emotion.loop, Math.floor(Math.random() * 12000) + 3000);
+    },
 
     e: function () { 
       return document.querySelector('#emotion') 
@@ -74,3 +98,5 @@
         '<animateTransform attributeName="transform" type="translate" calcMode="paced" dur="4s" repeatCount="indefinite" keyTimes="0; 0.5; 0.6; 0.9; 1" values="0 0;0 5;0 0;-5 0;0 0"></path>';
     }
   }
+
+setTimeout(emotion.loop, 10000);
