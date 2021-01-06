@@ -211,6 +211,8 @@ engine = {
     setInterval(engine.lifeCamera, 1000 / 20);
     /* подвешиваем сьем сигнала интернета */
     engine.lifeSignal();
+    /* подвешиваем опрос кнопок раз в сек */
+    setInterval("commands.button(0)", 1000);
     /* подвешиваем обработчик компаса */
     engine.watchIDcompass = navigator.compass.watchHeading(samobot.lifeMagneticHeading, samobot.magneticHeadingError, { frequency: 1000});
 
