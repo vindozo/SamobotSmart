@@ -82,6 +82,8 @@ commands = {
   },
   /* кнопки и датчики */
   button: function(param){
+   document.getElementById("buttons").innerHTML = 'B';
    engine.arduinoWrite('B'+param);
+   document.getElementById("buttons").innerHTML = 'B'+param;
   }
 }
