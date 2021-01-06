@@ -143,7 +143,7 @@ engine = {
   /* слушатель bluetooth порта - такой же как usb */ 
   bluetoothRead: function (data){
     document.getElementById("buttons").innerHTML = data;
-    engine.usbRead(data);
+    emotion.checkAction(data);
   },
   
   /* запись bluetooth порт */ 
@@ -154,8 +154,6 @@ engine = {
   /* чтение событий из arduino */
   arduinoRead: function (data) {
     /* serial do */
-    document.getElementById("buttons").innerHTML = data;
-    emotion.checkAction(data);
   },
   
   /* передача команд в arduino */
