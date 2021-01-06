@@ -153,6 +153,7 @@ engine = {
   /* чтение событий из arduino */
   arduinoRead: function (data) {
     /* serial do */
+    document.getElementById("buttons").innerHTML = data;
     emotion.checkAction(data);
   },
   
