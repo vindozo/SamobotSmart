@@ -142,6 +142,7 @@ engine = {
   
   /* слушатель bluetooth порта - такой же как usb */ 
   bluetoothRead: function (data){
+    document.getElementById("buttons").innerHTML = data;
     engine.usbRead(data);
   },
   
