@@ -123,7 +123,7 @@ engine = {
     if(view.length >= 1) {
       for(var i=0; i < view.length; i++) {
         if(view[i] == 13) {
-          /* serial do */
+          engine.arduinoRead(str);
           str = '';
         } else {
           var temp_str = String.fromCharCode(view[i]);
@@ -131,6 +131,7 @@ engine = {
           str += unescape(str_esc);
         }
       }
+      engine.arduinoRead(str);
     }
   },
   
@@ -139,14 +140,19 @@ engine = {
     serial.write(data+"\n");
   },  
   
-  /* слушатель bluetooth порта */ 
+  /* слушатель bluetooth порта - такой же как usb */ 
   bluetoothRead: function (data){
-    /* serial do */
+    engine.usbRead(data);
   },
   
   /* запись bluetooth порт */ 
   bluetoothWrite: function (data){
     bluetoothSerial.write(data+"\n");
+  },
+
+  /* чтение событий из arduino */
+  arduinoRead: function (data) {
+    /* serial do */
   },
   
   /* передача команд в arduino */
