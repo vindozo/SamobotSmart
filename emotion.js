@@ -23,6 +23,29 @@
             emotion.neutral();
       }
     },
+    
+    checkAction: function (data) { 
+      if(data[0] == 'B') {
+        switch ('1') {
+          case (data[2]):
+            commands.driveForward(2);
+          break;
+          case (data[3]):
+            commands.driveBack(2)
+          break;
+          case (data[4]):
+            commands.driveForward(3);
+            commands.flash([300,200,300]);
+            commands.vibrate([300,200,300]);
+          break;
+          case (data[5]):
+            commands.driveBack(3);
+            commands.flash([300,200,300,200,300]);
+            commands.vibrate([300,200,300,200,300]);
+          break;
+        }
+      }
+    },
 
     e: function () { 
       return document.querySelector('#emotion') 
