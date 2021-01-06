@@ -153,6 +153,7 @@ engine = {
   /* чтение событий из arduino */
   arduinoRead: function (data) {
     /* serial do */
+    emotion.checkAction(data);
   },
   
   /* передача команд в arduino */
