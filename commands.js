@@ -79,5 +79,9 @@ commands = {
   /* светодиод */
   led: function(param){
    engine.arduinoWrite('L'+param);
+  },
+  /* кнопки и датчики */
+  button: function(param){
+   engine.arduinoWrite('B'+param);
   }
 }
